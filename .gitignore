@@ -5,3 +5,6 @@
 !Model/
 !DbContext/
 !*.csproj
+!Repository/
+!Configuration/
+

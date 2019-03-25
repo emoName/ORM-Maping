@@ -1,4 +1,5 @@
-﻿using EfCoreModeling.Model;
+﻿using EfCoreModeling.Configuration;
+using EfCoreModeling.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,23 @@ namespace EfCoreModeling
         public DbSet<Message> Messages { get; set; }
         public DbSet<Role> Roles { get; set; }
 
-        override 
-  
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;
+                                         Initial Catalog=MyNewDatabase;
+                                         Integrated Security=True;
+                                         ApplicationIntent =ReadWrite;
+            ");
+            //   base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.ApplyConfiguration(new UsersConfiguration());
+
+            //    base.OnModelCreating(modelBuilder);
+        }
 
     }
 }

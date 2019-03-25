@@ -5,10 +5,10 @@ using System.Text;
 
 namespace EfCoreModeling.Model
 {
-  public  class User
+    public class User
     {
         [Key]
-        long UserId
+        public long UserId
         {
             get; set;
         }
@@ -28,13 +28,19 @@ namespace EfCoreModeling.Model
         {
             get; set;
         }
-        public Adrres Adrres { get; set; }
+        public Adrres Adrres
+        {
+            get; set;
+        }
         public List<Message> Message { get; set; } = new List<Message>();
         public long RoleID
         {
             get; set;
         }
-        public Role Role { get; set; }
+        public Role Role
+        {
+            get; set;
+        }
 
 
 
