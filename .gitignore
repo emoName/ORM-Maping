@@ -4,3 +4,4 @@
 !EfCoreModeling/
 !Model/
 !DbContext/
+!*.csproj
