@@ -2,4 +2,5 @@
 !.gitignore
 !*.cs
 !EfCoreModeling/
-!EfCoreModeling/Model/*
+!Model/
+!DbContext/
