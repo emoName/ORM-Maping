@@ -1,0 +1,5 @@
+*
+!.gitignore
+!*.cs
+!EfCoreModeling/
+!EfCoreModeling/Model/*
