@@ -18,11 +18,17 @@ namespace EfCoreModeling
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;
-                                         Initial Catalog=MyNewDatabase;
-                                         Integrated Security=True;
-                                         ApplicationIntent =ReadWrite;
-            ");
+            //optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;
+            //                             Initial Catalog=MyNewDatabase;
+            //                             Integrated Security=True;
+            //                             ApplicationIntent =ReadWrite;
+            //                           ");
+            optionsBuilder.UseSqlServer(@"
+                                          Data Source = MDDSK40076\DB_ION;
+                                          Initial Catalog = EfCoreMaping;
+                                          Integrated Security = True;"
+                                        );
+
             //   base.OnConfiguring(optionsBuilder);
         }
 
