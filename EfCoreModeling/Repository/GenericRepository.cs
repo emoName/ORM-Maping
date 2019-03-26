@@ -9,19 +9,19 @@ namespace EfCoreModeling.Repository
     class GenericRepository<T> where T : class
     {
 
-        private AppContext _context = null;
-        private DbSet<T> table = null;
+        private AppContext context;
+        private DbSet<T> table;
         public GenericRepository()
         {
-            this._context = new AppContext();
-            table = _context.Set<T>();
+            this.context = new AppContext();
+            table = context.Set<T>();
         }
-        public GenericRepository(AppContext _context)
+        public GenericRepository(AppContext context)
         {
-            this._context = _context;
-            table = _context.Set<T>();
+            this.context = context;
+            table = this.context.Set<T>();
         }
-        public IEnumerable<T> GetAll()
+        public IList<T> GetAll()
         {
             return table.ToList();
         }
@@ -36,7 +36,7 @@ namespace EfCoreModeling.Repository
         public void Update(T obj)
         {
             table.Attach(obj);
-            _context.Entry(obj).State = EntityState.Modified;
+            context.Entry(obj).State = EntityState.Modified;
         }
         public void Delete(object id)
         {
@@ -45,7 +45,7 @@ namespace EfCoreModeling.Repository
         }
         public void Save()
         {
-            _context.SaveChanges();
+            context.SaveChanges();
         }
 
 

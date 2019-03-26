@@ -68,8 +68,8 @@ namespace EfCoreModeling
                                   " " + item.UserName +
                                   " " + item.RoleID +
                                   " " + item.EmailId +
-                                  " " + item.AdrresId +
-                                  " " + item.Message);
+                                  " " + item.AdrresId 
+                                  );
                 //  Console.WriteLine(item.UserId + " " + item.UserName + " " + item.Role.UserRole + " " + item.Email.UserEmail);
                 Console.WriteLine("======================================================");
 
