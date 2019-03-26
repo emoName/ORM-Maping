@@ -19,6 +19,8 @@ namespace EfCoreModeling.Configuration
             builder.Property(x => x.UserId)
                    .UseSqlServerIdentityColumn();
 
+            builder.HasIndex(x => x.EmailId).IsUnique();
+
             builder.HasOne(x => x.Email)
                    .WithOne(x => x.User)
                    .HasForeignKey<User>(x => x.EmailId)

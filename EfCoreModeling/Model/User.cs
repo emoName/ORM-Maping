@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EfCoreModeling.Model
 {
+    
     public class User
     {
         [Key]
@@ -16,7 +17,8 @@ namespace EfCoreModeling.Model
         {
             get; set;
         }
-        public long EmailId
+       // [Index (IsUnique = true)]
+        public long? EmailId
         {
             get; set;
         }
@@ -24,7 +26,7 @@ namespace EfCoreModeling.Model
         {
             get; set;
         }
-        public long AdrresId
+        public long? AdrresId
         {
             get; set;
         }
@@ -33,7 +35,7 @@ namespace EfCoreModeling.Model
             get; set;
         }
         public List<Message> Message { get; set; } = new List<Message>();
-        public long RoleID
+        public long? RoleID
         {
             get; set;
         }

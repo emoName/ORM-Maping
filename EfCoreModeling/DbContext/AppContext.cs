@@ -35,7 +35,9 @@ namespace EfCoreModeling
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+            modelBuilder.ApplyConfiguration(new EmailConfiguration());
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
+
 
             //    base.OnModelCreating(modelBuilder);
         }

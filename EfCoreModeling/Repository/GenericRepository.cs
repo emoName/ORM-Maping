@@ -25,7 +25,7 @@ namespace EfCoreModeling.Repository
         {
             return table.ToList();
         }
-        public T GetById(object id)
+        public T GetById<U>(U id)
         {
             return table.Find(id);
         }
