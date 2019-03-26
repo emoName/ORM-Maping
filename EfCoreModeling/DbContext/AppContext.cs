@@ -36,6 +36,7 @@ namespace EfCoreModeling
         {
 
             modelBuilder.ApplyConfiguration(new EmailConfiguration());
+            
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
 
 

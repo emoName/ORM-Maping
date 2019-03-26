@@ -39,8 +39,8 @@ namespace EfCoreModeling
             _user = new User()
             {
                 UserName = "Vasile",
-                RoleID =  roleRepository.GetById((long)1).RoleId,
-                EmailId =  emailRepository.GetById((long)2).EmailId
+                RoleID = roleRepository.GetById((long)1).RoleId,
+                EmailId = emailRepository.GetById((long)2).EmailId
             };
             userRepository.Insert(_user);
             userRepository.Save();
@@ -52,7 +52,7 @@ namespace EfCoreModeling
                 Console.WriteLine(item.UserEmail);
 
             }
-            
+
             Console.WriteLine("--------------------->------>--------->----------------");
             Console.WriteLine("-----------------<  Roles  >---------------------------");
             foreach ( var item in roleRepository.GetAll() )
@@ -64,8 +64,13 @@ namespace EfCoreModeling
             foreach ( var item in userRepository.GetAll() )
             {
                 Console.WriteLine("======================================================");
-                Console.WriteLine(item.UserId + " " + item.UserName + " " + item.RoleID + " " + item.EmailId);
-              //  Console.WriteLine(item.UserId + " " + item.UserName + " " + item.Role.UserRole + " " + item.Email.UserEmail);
+                Console.WriteLine(item.UserId +
+                                  " " + item.UserName +
+                                  " " + item.RoleID +
+                                  " " + item.EmailId +
+                                  " " + item.AdrresId +
+                                  " " + item.Message);
+                //  Console.WriteLine(item.UserId + " " + item.UserName + " " + item.Role.UserRole + " " + item.Email.UserEmail);
                 Console.WriteLine("======================================================");
 
             }
