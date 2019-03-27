@@ -7,11 +7,10 @@ using System.Text;
 
 namespace EfCoreModeling.Configuration
 {
-    class EmailConfiguration : IEntityTypeConfiguration<Email>
+    class MessageConfiguration : IEntityTypeConfiguration<Message>
     {
-        public void Configure(EntityTypeBuilder<Email> builder)
+        public void Configure(EntityTypeBuilder<Message> builder)
         {
-            builder.HasIndex(x => x.UserEmail).IsUnique();
             builder.Property(x => x.RowVersion).IsRowVersion();
         }
     }

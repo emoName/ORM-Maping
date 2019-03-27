@@ -1,7 +1,10 @@
 ﻿
 using EfCoreModeling.Model;
+using EfCoreModeling.Model.TablePerHierarchy;
+using EfCoreModeling.Model.TablePerType;
 using EfCoreModeling.Repository;
 using System;
+using System.Linq;
 
 namespace EfCoreModeling
 {
@@ -9,6 +12,7 @@ namespace EfCoreModeling
     {
         static void Main(string[] args)
         {
+            ShowExperiment();
 
             var emailRepository = new GenericRepository<Email>();
             Email _mail = AddEmails(emailRepository);
@@ -31,6 +35,41 @@ namespace EfCoreModeling
 
             Console.ReadLine();
 
+        }
+
+        private static void ShowExperiment()
+        {
+            var th = new ProgramPerH();
+            var tc = new ProgramPerType();
+            using ( var context = new AppContext() )
+            {
+                var parent = context.parentClasses.ToList();
+                foreach ( var item in parent )
+                {
+                    if ( item is Child1 aa )
+                    {
+                        Console.WriteLine($"Child1 : {aa.id}  {aa.SomeValueParent}  {aa.SomeChild_1_Value}");
+                        continue;
+                    }
+                    if ( item is Child2 bb )
+                    {
+                        Console.WriteLine($"Child1 : {bb.id}  {bb.SomeValueParent}  {bb.SomeChild_2_Value}  {bb.GetDescrioption()}");
+                        continue;
+                    }
+
+                    Console.WriteLine($"Parent : {item.id}  {item.SomeValueParent}");
+                }
+
+                foreach ( var item in context.child12s.ToList() )
+                {
+                    Console.WriteLine($"Child12 : {item.id}  {item.SomeValueParent}  {item.SomeChild_1_Value}");
+                }
+                foreach ( var item in context.child22s.ToList() )
+                {
+                    Console.WriteLine($"Child12 : {item.id}  {item.SomeValueParent}  {item.SomeChild_2_Value}");
+                }
+
+            }
         }
 
         private static void ShowUsers(GenericRepository<User> userRepository)

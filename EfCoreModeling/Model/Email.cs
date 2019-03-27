@@ -12,6 +12,6 @@ namespace EfCoreModeling.Model
         [Required]
         public string UserEmail { get; set; }
         public User User { get; set; }
-
+        public byte[] RowVersion { get; set; }
     }
 }

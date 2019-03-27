@@ -13,5 +13,6 @@ namespace EfCoreModeling.Model
         [Required]
         public string UserRole { get; set; }
         public List<User> Users { get; set; } = new List<User>();
+        public byte[] RowVersion { get; set; }
     }
 }

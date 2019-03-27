@@ -13,6 +13,7 @@ namespace EfCoreModeling.Model
         [Required]
         public string Adrress { get; set; }
         public List<User> User { get; set; } = new List<User>();
+        public byte[] RowVersion { get; set; }
 
     }
 }

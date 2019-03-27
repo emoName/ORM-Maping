@@ -1,5 +1,6 @@
 ﻿using EfCoreModeling.Configuration;
 using EfCoreModeling.Model;
+using EfCoreModeling.Model.TablePerHierarchy;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,17 @@ namespace EfCoreModeling
         public DbSet<Email> Emails { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Role> Roles { get; set; }
+
+
+        //TablePerHierarchy
+        public DbSet<ParentClass> parentClasses { get; set; }
+        public DbSet<Child1> Child1s { get; set; }
+        public DbSet<Child2> Child2s { get; set; }
+        //Table Per Type 
+        public DbSet<Child12> child12s { get; set; }
+        public DbSet<Child22> child22s { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

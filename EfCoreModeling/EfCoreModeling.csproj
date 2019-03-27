@@ -14,8 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataBaseFirst\DataBaseFirst.csproj" />
-  </ItemGroup>
-
 </Project>

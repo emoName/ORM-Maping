@@ -7,11 +7,10 @@ using System.Text;
 
 namespace EfCoreModeling.Configuration
 {
-    class EmailConfiguration : IEntityTypeConfiguration<Email>
+    class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
-        public void Configure(EntityTypeBuilder<Email> builder)
+        public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.HasIndex(x => x.UserEmail).IsUnique();
             builder.Property(x => x.RowVersion).IsRowVersion();
         }
     }
