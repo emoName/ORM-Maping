@@ -30,23 +30,12 @@ namespace EfCoreModeling
                                           Integrated Security = True;"
                                         );
 
-          //  Scaffold - DbContext "Data Source = MDDSK40076\DB_ION; Initial Catalog = EfCoreMaping;Integrated Security = True;" Microsoft.EntityFrameworkCore.SqlServer - OutputDir Models
-
-
-            //   base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            //modelBuilder.ApplyConfiguration(new EmailConfiguration());
-            
-            //modelBuilder.ApplyConfiguration(new UsersConfiguration());
-
-
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-            //    base.OnModelCreating(modelBuilder);
         }
 
     }

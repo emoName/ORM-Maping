@@ -46,11 +46,6 @@ namespace EfCoreModeling.Configuration
                    .HasPrincipalKey(x => x.AdrresId)
                    .OnDelete(DeleteBehavior.Cascade);
 
-
-
-
-
-
         }
     }
 }

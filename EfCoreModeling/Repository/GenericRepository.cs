@@ -38,7 +38,7 @@ namespace EfCoreModeling.Repository
             table.Attach(obj);
             context.Entry(obj).State = EntityState.Modified;
         }
-        public void Delete(object id)
+        public void Delete<U>(U id)
         {
             T existing = table.Find(id);
             table.Remove(existing);
