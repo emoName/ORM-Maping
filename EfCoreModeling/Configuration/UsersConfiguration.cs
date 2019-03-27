@@ -24,7 +24,8 @@ namespace EfCoreModeling.Configuration
             builder.HasOne(x => x.Email)
                    .WithOne(x => x.User)
                    .HasForeignKey<User>(x => x.EmailId)
-                   .HasPrincipalKey<Email>(x => x.EmailId);
+                   .HasPrincipalKey<Email>(x => x.EmailId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.RoleID)
                    .HasMaxLength(120);
@@ -32,15 +33,18 @@ namespace EfCoreModeling.Configuration
             builder.HasOne(x => x.Role)
                    .WithMany(x => x.Users)
                    .HasForeignKey(x => x.RoleID)
-                   .HasPrincipalKey(x => x.RoleId);
+                   .HasPrincipalKey(x => x.RoleId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(x => x.Message)
-                   .WithOne(x => x.User);
+                   .WithOne(x => x.User)
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(x => x.Adrres)
                    .WithMany(x => x.User)
                    .HasForeignKey(x => x.AdrresId)
-                   .HasPrincipalKey(x => x.AdrresId);
+                   .HasPrincipalKey(x => x.AdrresId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
 
 

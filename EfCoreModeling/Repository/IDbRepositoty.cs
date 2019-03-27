@@ -8,10 +8,10 @@ namespace EfCoreModeling.Repository
     {
 
         IEnumerable<T> GetAll();
-        T GetById(object id);
+        T GetById<U>(U id);
         void Insert(T obj);
         void Update(T obj);
-        void Delete(object id);
+        void Delete<U>(U id);
         void Save();
     }
 }
