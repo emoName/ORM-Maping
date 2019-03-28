@@ -7,4 +7,6 @@
 !*.csproj
 !Repository/
 !Configuration/
+!TablePerHierarchyTest/
+!TablePerType/
 
