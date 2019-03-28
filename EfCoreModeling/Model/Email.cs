@@ -8,7 +8,7 @@ namespace EfCoreModeling.Model
         [Key]
         [Required]
         [InverseProperty(nameof(User))]
-        public long EmailId { get; set; }
+        public int EmailId { get; set; }
         [Required]
         public string UserEmail { get; set; }
         public User User { get; set; }

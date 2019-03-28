@@ -12,6 +12,9 @@ namespace EfCoreModeling.Configuration
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Adrres> builder)
         {
             builder.Property(x => x.RowVersion).IsRowVersion();
+
+            builder.HasData(new Adrres() { AdrresId = 1, Adrress = "Str.Ismail" });
+
         }
     }
 }

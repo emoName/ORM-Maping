@@ -11,7 +11,7 @@ namespace EfCoreModeling.Model
     {
         [Key]
         [Required]
-        public long UserId
+        public int UserId
         {
             get; set;
         }
@@ -21,7 +21,7 @@ namespace EfCoreModeling.Model
             get; set;
         }
         [ForeignKey(nameof(Email)) ]
-        public long? EmailId
+        public int? EmailId
         {
             get; set;
         }
@@ -30,7 +30,7 @@ namespace EfCoreModeling.Model
             get; set;
         }
         [ForeignKey(nameof(Adrres))]
-        public long? AdrresId
+        public int? AdrresId
         {
             get; set;
         }
@@ -39,8 +39,9 @@ namespace EfCoreModeling.Model
             get; set;
         }
         public List<Message> Message { get; set; } = new List<Message>();
+
         [ForeignKey(nameof(Role))]
-        public long? RoleID
+        public int? RoleID
         {
             get; set;
         }

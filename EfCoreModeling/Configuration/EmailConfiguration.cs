@@ -13,6 +13,8 @@ namespace EfCoreModeling.Configuration
         {
             builder.HasIndex(x => x.UserEmail).IsUnique();
             builder.Property(x => x.RowVersion).IsRowVersion();
+
+            builder.HasData(new { UserEmail = "FirstExample@Test.Com", EmailId = 1 });
         }
     }
 }

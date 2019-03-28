@@ -9,7 +9,7 @@ namespace EfCoreModeling.Model
         [Key]
         [Required]
         [InverseProperty(nameof(User))]
-        public long RoleId { get; set; }
+        public int RoleId { get; set; }
         [Required]
         public string UserRole { get; set; }
         public List<User> Users { get; set; } = new List<User>();

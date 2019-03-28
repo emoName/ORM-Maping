@@ -7,7 +7,7 @@ namespace EfCoreModeling.Repository
     interface IDbRepositoty<T> where T : class
     {
 
-        IEnumerable<T> GetAll();
+        IList<T> GetAll();
         T GetById<U>(U id);
         void Insert(T obj);
         void Update(T obj);

@@ -12,7 +12,7 @@ namespace EfCoreModeling
     {
         static void Main(string[] args)
         {
-            ShowExperiment();
+           // ShowExperiment();
 
             var emailRepository = new GenericRepository<Email>();
             Email _mail = AddEmails(emailRepository);
@@ -119,14 +119,15 @@ namespace EfCoreModeling
             {
                 UserName = "Ghiorghe",
                 RoleID = _rol.RoleId,
-                EmailId = _mail.EmailId
+                EmailId = _mail.EmailId,
+                Adrres= new Adrres() {Adrress="str.Chisinau 5" }
             };
             userRepository.Insert(_user);
             _user = new User()
             {
                 UserName = "Vasile",
-                RoleID = roleRepository.GetById((long)1).RoleId,
-                EmailId = emailRepository.GetById((long)2).EmailId
+                RoleID = roleRepository.GetById((int)1).RoleId,
+                EmailId = emailRepository.GetById((int)2).EmailId
             };
             userRepository.Insert(_user);
             userRepository.Save();

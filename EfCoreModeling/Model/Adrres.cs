@@ -9,7 +9,7 @@ namespace EfCoreModeling.Model
         [Key]
         [Required]
         [InverseProperty(nameof(User))]
-        public long AdrresId { get; set; }
+        public int AdrresId { get; set; }
         [Required]
         public string Adrress { get; set; }
         public List<User> User { get; set; } = new List<User>();

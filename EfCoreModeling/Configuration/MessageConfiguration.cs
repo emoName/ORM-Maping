@@ -12,6 +12,10 @@ namespace EfCoreModeling.Configuration
         public void Configure(EntityTypeBuilder<Message> builder)
         {
             builder.Property(x => x.RowVersion).IsRowVersion();
+            builder.HasData(
+                new Message() { MessageId = 1, Description = "Hello "  },
+                new Message() { MessageId = 2, Description = "World !!! " }
+                );
         }
     }
 }

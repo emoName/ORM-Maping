@@ -12,6 +12,7 @@ namespace EfCoreModeling.Configuration
         public void Configure(EntityTypeBuilder<Role> builder)
         {
             builder.Property(x => x.RowVersion).IsRowVersion();
+            builder.HasData(new Role() { RoleId = 1, UserRole = "Guest" });
         }
     }
 }

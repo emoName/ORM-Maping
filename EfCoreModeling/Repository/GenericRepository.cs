@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace EfCoreModeling.Repository
 {
-    class GenericRepository<T> where T : class
+    class GenericRepository<T> : IDbRepositoty<T> where T : class 
     {
 
         private AppContext context;
@@ -57,7 +57,6 @@ namespace EfCoreModeling.Repository
             }
         }
 
-
-
+ 
     }
 }
