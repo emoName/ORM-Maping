@@ -1,4 +1,5 @@
 ﻿
+using EfCoreModeling.AdvenceSelecting;
 using EfCoreModeling.Model;
 using EfCoreModeling.Model.TablePerHierarchy;
 using EfCoreModeling.Model.TablePerType;
@@ -12,7 +13,9 @@ namespace EfCoreModeling
     {
         static void Main(string[] args)
         {
-           // ShowExperiment();
+            UpdateConcurency();
+
+            ShowExperiment();
 
             var emailRepository = new GenericRepository<Email>();
             Email _mail = AddEmails(emailRepository);
@@ -35,6 +38,28 @@ namespace EfCoreModeling
 
             Console.ReadLine();
 
+        }
+
+        private static void UpdateConcurency()
+        {
+            var email = new Email() { UserEmail = "asdfg@lkjh.md" };
+
+            var context = new AppContext();
+
+            try
+            {
+                context.Emails.Add(email);
+                context.SaveChanges();
+                email.UserEmail = "gfdsaa@lki.com";
+
+                email.UserEmail = "gfdssssssaa@lki.com";
+
+                context.SaveChanges();
+            }
+            catch ( Exception )
+            {
+                Console.WriteLine("Concurency  Exception !!!");
+            }
         }
 
         private static void ShowExperiment()
@@ -110,7 +135,7 @@ namespace EfCoreModeling
         }
 
         private static void AddUsers(GenericRepository<Email> emailRepository,
-                                     Email _mail, 
+                                     Email _mail,
                                      GenericRepository<Role> roleRepository,
                                      Role _rol,
                                      GenericRepository<User> userRepository)
@@ -120,7 +145,7 @@ namespace EfCoreModeling
                 UserName = "Ghiorghe",
                 RoleID = _rol.RoleId,
                 EmailId = _mail.EmailId,
-                Adrres= new Adrres() {Adrress="str.Chisinau 5" }
+                Adrres = new Adrres() { Adrress = "str.Chisinau 5" }
             };
             userRepository.Insert(_user);
             _user = new User()

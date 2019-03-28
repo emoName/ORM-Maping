@@ -6,49 +6,28 @@ using System.Text;
 
 namespace EfCoreModeling.Model
 {
-    
+
     public class User
     {
         [Key]
         [Required]
-        public int UserId
-        {
-            get; set;
-        }
+        public int UserId { get; set; }
         [Required]
-        public string UserName
-        {
-            get; set;
-        }
-        [ForeignKey(nameof(Email)) ]
-        public int? EmailId
-        {
-            get; set;
-        }
-        public Email Email
-        {
-            get; set;
-        }
+        public string UserName { get; set; }
+
+        [ForeignKey(nameof(Email))]
+        public int? EmailId { get; set; }
+        public Email Email { get; set; }
+
         [ForeignKey(nameof(Adrres))]
-        public int? AdrresId
-        {
-            get; set;
-        }
-        public Adrres Adrres
-        {
-            get; set;
-        }
+        public int? AdrresId { get; set; }
+        public Adrres Adrres { get; set; }
+
         public List<Message> Message { get; set; } = new List<Message>();
 
         [ForeignKey(nameof(Role))]
-        public int? RoleID
-        {
-            get; set;
-        }
-        public Role Role
-        {
-            get; set;
-        }
+        public int? RoleID { get; set; }
+        public Role Role { get; set; }
 
 
 
