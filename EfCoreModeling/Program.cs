@@ -4,6 +4,7 @@ using EfCoreModeling.Model;
 using EfCoreModeling.Model.TablePerHierarchy;
 using EfCoreModeling.Model.TablePerType;
 using EfCoreModeling.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -43,22 +44,35 @@ namespace EfCoreModeling
         private static void UpdateConcurency()
         {
             var email = new Email() { UserEmail = "asdfg@lkjh.md" };
-
-            var context = new AppContext();
-
-            try
+           
+           
+            using ( var context = new AppContext()  )
             {
-                context.Emails.Add(email);
-                context.SaveChanges();
-                email.UserEmail = "gfdsaa@lki.com";
+                try
+                {
+                    context.Emails.Add(email);
+                    context.SaveChanges();
 
-                email.UserEmail = "gfdssssssaa@lki.com";
+                    var email2 = new Email() {
+                        EmailId=email.EmailId,
+                        RowVersion=email.RowVersion,
+                        User=email.User,
+                        UserEmail=email.UserEmail
+                    };
 
-                context.SaveChanges();
-            }
-            catch ( Exception )
-            {
-                Console.WriteLine("Concurency  Exception !!!");
+                    email.UserEmail = "gfdssssssaa@lki.com";
+                    context.SaveChanges();
+                    context.Entry(email).State= EntityState.Detached;
+
+                    context.Emails.Attach(email2);
+                    email2.UserEmail = "gfdsaa@lki.com";
+                    context.SaveChanges();
+
+                }
+                catch ( DbUpdateConcurrencyException e )
+                {
+                    Console.WriteLine("Concurrency  Exception !!!");
+                }
             }
         }
 
