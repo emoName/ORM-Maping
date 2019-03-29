@@ -14,6 +14,11 @@ namespace EfCoreModeling
     {
         static void Main(string[] args)
         {
+            var a = new ShowClass();
+
+
+
+
             UpdateConcurency();
 
             ShowExperiment();
@@ -44,25 +49,26 @@ namespace EfCoreModeling
         private static void UpdateConcurency()
         {
             var email = new Email() { UserEmail = "asdfg@lkjh.md" };
-           
-           
-            using ( var context = new AppContext()  )
+
+
+            using ( var context = new AppContext() )
             {
                 try
                 {
                     context.Emails.Add(email);
                     context.SaveChanges();
 
-                    var email2 = new Email() {
-                        EmailId=email.EmailId,
-                        RowVersion=email.RowVersion,
-                        User=email.User,
-                        UserEmail=email.UserEmail
+                    var email2 = new Email()
+                    {
+                        EmailId = email.EmailId,
+                        RowVersion = email.RowVersion,
+                        User = email.User,
+                        UserEmail = email.UserEmail
                     };
 
                     email.UserEmail = "gfdssssssaa@lki.com";
                     context.SaveChanges();
-                    context.Entry(email).State= EntityState.Detached;
+                    context.Entry(email).State = EntityState.Detached;
 
                     context.Emails.Attach(email2);
                     email2.UserEmail = "gfdsaa@lki.com";

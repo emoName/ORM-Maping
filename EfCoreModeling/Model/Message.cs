@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
@@ -11,6 +12,7 @@ namespace EfCoreModeling.Model
         [Required]
         public string Description { get; set; }
      
+        public DateTime Date { get; set; }
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public User User { get; set; }
